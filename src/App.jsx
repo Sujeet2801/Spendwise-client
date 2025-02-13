@@ -1,11 +1,14 @@
 
 import './App.css'
+import Appbar from './components/Appbar'
+import Home from './components/Home'
 
 function App() {
 
   return (
     <div >
-      h1
+      <Appbar/>
+      <Home/>
     </div>
   )
 }
