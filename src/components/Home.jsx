@@ -2,8 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import Adphoto from "../../src/images/Ad.png";
 import Book from "../../src/images/book.png";
-import Photo1 from "../../src/images/Home_image1.jpg";
-import Photo2 from "../../src/images/Home_image2.png";
+import Photo1 from "../../src/images/Expense.png";
+import Photo2 from "../../src/images/eExpense.png";
+import Photo3 from "../../src/images/Home_image1.jpg";
 
 function Home() {
   const redirectToLink = () => window.open("https://www.lifehack.org/articles/featured/an-introduction-to-expense-tracking.html", "_blank");
@@ -15,10 +16,6 @@ function Home() {
       {/* Background with SVG Waves */}
       <div className="relative bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 
       min-h-screen pt-5">
-        {/* SVG Top Wave */}
-        {/* <svg className="absolute top-0 left-0 w-full" viewBox="0 0 1440 320">
-          <path fill="#ffffff" d="M0,160L1440,320L1440,0L0,0Z"></path>
-        </svg> */}
 
         {/* Ad Banner */}
         <motion.div
@@ -95,7 +92,7 @@ function Home() {
         }, {
           title: "An Introduction to Expense Tracking.",
           desc: "Expense tracking is the art of monitoring and recording your financial transactions...",
-          image: Photo1,
+          image: Photo3,
           buttonAction: redirectToLink,
           reverse: false
         }].map(({ title, desc, image, buttonAction, reverse }, index) => (
