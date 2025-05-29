@@ -1,35 +1,46 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Footer from './components/Footer';
+import Home from './components/Home';
+import Navbar from './components/Navbar';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Cover from './pages/Cover';
 
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Layout from './components/Layout';
+import { AuthProvider } from './hooks/useAuth';
 
-// import Appbar from './components/Appbar'
-import Footer from './components/Footer'
-import Home from './components/Home'
-import Navbar from './components/Navbar'
-import About from './pages/About'
-import Contact from './pages/Contact'
-import DataProvider from './context/DataProvider'
-import Cover from './pages/Cover'
-import Response from './pages/Response'
-import UpdatePage from './pages/UpdatePage'
+import AddExpensePage from './pages/expense/AddExpensePage';
+import AddIncomePage from './pages/income/AddIncomePage';
+import DashboardPage from './pages/DashboardPage';
+import AllExpense from './pages/expense/AllExpense';
+import AllIncome from './pages/income/AllIncome';
 
 function App() {
-
   return (
     <BrowserRouter>
-      <DataProvider>
+      <AuthProvider>
         <Navbar />
         <Routes>
+          <Route path='/login' element={<Layout />} />
+          <Route path='/register' element={<Layout />} />
+
           <Route index element={<Home />} />
-          <Route path="dashboard" element={<Cover />} />
-          <Route path="response" element={<Response />} />
-          <Route path="about" element={<About />} />
-          <Route path="update" element={<UpdatePage />} />
-          <Route path="contact" element={<Contact/>} />
+          <Route path='/cover' element={<Cover />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/contact' element={<Contact />} />
+
+          <Route path='/dashboard' element={<DashboardPage />} />
+          <Route path='/add-expense' element={<AddExpensePage />} />
+          <Route path='/add-income' element={<AddIncomePage />} />
+
+          <Route path='/all-expenses' element={<AllExpense />} />
+          <Route path='/all-incomes' element={<AllIncome />} />
         </Routes>
+
         <Footer />
-        </DataProvider>
+      </AuthProvider>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;
