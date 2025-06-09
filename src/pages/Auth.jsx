@@ -36,7 +36,7 @@ const AuthModal = () => {
   if (!isLogin && !isRegister) return null;
 
   return (
-    <div className='fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50'>
+    <div className='fixed inset-0 bg-black bg-opacity-95 flex items-center justify-center z-50'>
       <div className='bg-white rounded-xl shadow-lg p-8 max-w-sm w-full relative'>
         <button
           onClick={() => navigate('/')}
@@ -44,7 +44,7 @@ const AuthModal = () => {
         >
           &times;
         </button>
-        <h2 className='text-2xl font-semibold mb-4'>{isLogin ? 'Login' : 'Register'}</h2>
+        <h2 className='text-2xl  font-semibold mb-4'>{isLogin ? 'Login' : 'Register'}</h2>
         {isLogin ? (
           <LoginForm onSubmit={login} loading={loading} setLoading={setLoading} />
         ) : (
