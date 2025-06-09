@@ -5,7 +5,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api/v1/users": {
-        target: "https://spendwise-website-production.up.railway.app/",
+        target: "https://spendwise-website-3.onrender.com/",
         changeOrigin: true,
         secure: false,
       }
