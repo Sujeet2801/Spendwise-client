@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import Logo from '../../src/images/logo1.png';
+import Logo from '../../public/images/logo1.png';
 import { footerData } from '../utility/data.js';
 
 function Footer() {
