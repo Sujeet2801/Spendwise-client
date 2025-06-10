@@ -5,7 +5,6 @@ import { useAuth } from '../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 
 export default function Cover() {
-  const [open, setOpen] = useState(false);
   const { user } = useAuth();
   const [quoteIndex, setQuoteIndex] = useState(0);
   const navigate = useNavigate();
@@ -19,13 +18,17 @@ export default function Cover() {
   ];
 
   useEffect(() => {
+
+    if (user) {
+      navigate('/dashboard');
+    } else {
+      navigate('/cover');
+    }
     const interval = setInterval(() => {
       setQuoteIndex((prevIndex) => (prevIndex + 1) % quotes.length);
     }, 3000);
     return () => clearInterval(interval);
   }, []);
-
-  const openDialog = () => setOpen(true);
 
   return (
     <div
