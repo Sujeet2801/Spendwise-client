@@ -9,11 +9,15 @@ import Cover from './pages/Cover';
 import Layout from './components/Layout';
 import { AuthProvider } from './hooks/useAuth';
 
-import AddExpensePage from './pages/expense/AddExpensePage';
-import AddIncomePage from './pages/income/AddIncomePage';
 import DashboardPage from './pages/DashboardPage';
-import AllExpense from './pages/expense/AllExpense';
+
+import AddIncomePage from './pages/income/AddIncomePage';
 import AllIncome from './pages/income/AllIncome';
+import EditIncome from './pages/income/EditIncomePage';
+
+import AddExpensePage from './pages/expense/AddExpensePage';
+import AllExpense from './pages/expense/AllExpense';
+import EditExpense from './pages/expense/EditExpensePage';
 
 function App() {
   return (
@@ -30,11 +34,15 @@ function App() {
           <Route path='/contact' element={<Contact />} />
 
           <Route path='/dashboard' element={<DashboardPage />} />
-          <Route path='/add-expense' element={<AddExpensePage />} />
+
           <Route path='/add-income' element={<AddIncomePage />} />
+          <Route path='/all-incomes' element={<AllIncome />} />
+          <Route path='/edit-income/:id' element={<EditIncome />} />
 
           <Route path='/all-expenses' element={<AllExpense />} />
-          <Route path='/all-incomes' element={<AllIncome />} />
+          <Route path='/add-expense' element={<AddExpensePage />} />
+          <Route path='/edit-expense/:id' element={<EditExpense />} />
+
         </Routes>
 
         <Footer />
