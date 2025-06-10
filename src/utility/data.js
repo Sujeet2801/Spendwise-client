@@ -4,9 +4,9 @@ import {
     FaLinkedin,
     FaBriefcase,
 } from "react-icons/fa";
-import Photo1 from '../images/expense1.webp';
-import Photo2 from '../images/expense3.webp';
-import Photo3 from '../images/expense2.webp';
+import Photo1 from '../../public/images/expense1.webp';
+import Photo2 from '../../public/images/expense3.webp';
+import Photo3 from '../../public/images/expense2.webp';
 
 export const contact = [
     {
