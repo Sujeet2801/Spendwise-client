@@ -1,26 +1,44 @@
 import { useEffect, useState } from 'react';
-import { getAllIncome } from '../../service/Api.js';
+import { getAllIncome, deleteIncome } from '../../service/Api.js';
+import { useNavigate } from 'react-router-dom';
 
 function AllIncome() {
   const [incomes, setIncomes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
+  const navigate = useNavigate();
+
   useEffect(() => {
-    const fetchIncomes = async () => {
-      try {
-        const res = await getAllIncome();
-        console.log(res);
-        setIncomes(res.data.data || []);
-      } catch (error) {
-        console.error('Fetch income error:', error);
-        setError('Failed to load income data.');
-      } finally {
-        setLoading(false);
-      }
-    };
     fetchIncomes();
   }, []);
+
+  const fetchIncomes = async () => {
+    try {
+      const res = await getAllIncome();
+      setIncomes(res.data.data || []);
+    } catch (error) {
+      console.error('Fetch income error:', error);
+      setError('Failed to load income data.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleDelete = async (id) => {
+    if (!window.confirm('Are you sure you want to delete this income?')) return;
+    try {
+      await deleteIncome(id);
+      setIncomes(incomes.filter((income) => income._id !== id));
+    } catch (err) {
+      console.error('Delete error:', err);
+      alert('Failed to delete income.');
+    }
+  };
+
+  const handleEdit = (id) => {
+    navigate(`/edit-income/${id}`);
+  };
 
   if (loading) {
     return <p className='text-center mt-10 text-lg text-gray-600'>Loading...</p>;
@@ -56,8 +74,23 @@ function AllIncome() {
             <div className='text-gray-700 mb-1'>
               <strong>Source:</strong> {income.source}
             </div>
-            <div className='text-gray-600 text-sm'>
+            <div className='text-gray-600 text-sm mb-2'>
               <strong>Notes:</strong> {income.notes || 'N/A'}
+            </div>
+
+            <div className='flex gap-2'>
+              <button
+                onClick={() => handleEdit(income._id)}
+                className='px-3 py-1 bg-blue-500 text-white text-sm rounded hover:bg-blue-600'
+              >
+                Edit
+              </button>
+              <button
+                onClick={() => handleDelete(income._id)}
+                className='px-3 py-1 bg-red-500 text-white text-sm rounded hover:bg-red-600'
+              >
+                Delete
+              </button>
             </div>
           </div>
         ))
