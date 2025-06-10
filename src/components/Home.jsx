@@ -6,30 +6,6 @@ import Book from '../../public/images/book.png';
 import { articlesData } from '../utility/data';
 import { FaLock, FaBolt, FaChartPie } from 'react-icons/fa';
 
-// const articlesData = [
-//   {
-//     title: 'Master Your Budget',
-//     desc: 'Learn to allocate your money effectively for a stress-free month.',
-//     image: 'https://via.placeholder.com/384x224?text=Article+1',
-//     reverse: false,
-//     buttonAction: () => alert('Read Article 1'),
-//   },
-//   {
-//     title: 'Investing Basics',
-//     desc: 'Start your investment journey with simple and safe strategies.',
-//     image: 'https://via.placeholder.com/384x224?text=Article+2',
-//     reverse: true,
-//     buttonAction: () => alert('Read Article 2'),
-//   },
-//   {
-//     title: 'Saving Tips',
-//     desc: 'Practical advice to boost your savings without feeling the pinch.',
-//     image: 'https://via.placeholder.com/384x224?text=Article+3',
-//     reverse: false,
-//     buttonAction: () => alert('Read Article 3'),
-//   },
-// ];
-
 export default function Home() {
   const navigate = useNavigate();
   const { user } = useAuth();
@@ -257,10 +233,13 @@ export default function Home() {
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}
-        className='py-16 px-6 bg-gradient-to-br from-indigo-200 via-purple-200 to-pink-100 text-gray-900 text-center rounded-3xl shadow-2xl max-w-5xl mx-auto my-10 relative overflow-hidden'
+        className='py-16 px-6 bg-gradient-to-br from-indigo-200 via-purple-200 to-pink-100 
+        text-gray-900 text-center rounded-3xl shadow-2xl max-w-5xl mx-auto my-10 relative overflow-hidden'
       >
-        <div className='absolute -top-10 -left-10 w-48 h-48 bg-pink-300 rounded-full opacity-20 blur-2xl animate-pulse' />
-        <div className='absolute -bottom-10 -right-10 w-48 h-48 bg-indigo-300 rounded-full opacity-20 blur-2xl animate-pulse' />
+        <div className='absolute -top-10 -left-10 w-48 h-48 bg-pink-300 rounded-full opacity-20 blur-2xl
+        animate-pulse' />
+        <div className='absolute -bottom-10 -right-10 w-48 h-48 bg-indigo-300 rounded-full opacity-20 
+        blur-2xl animate-pulse' />
 
         <motion.h2
           initial={{ y: 20, opacity: 0 }}
@@ -303,8 +282,9 @@ export default function Home() {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          onClick={() => navigate('/login')}
-          className='mt-10 px-8 py-4 bg-indigo-600 text-white font-bold rounded-full text-lg shadow-lg hover:bg-indigo-700 transition-all'
+          onClick={handleLoginClick}
+          className='mt-10 px-8 py-4 bg-indigo-600 text-white font-bold rounded-full text-lg shadow-lg
+          hover:bg-indigo-700 transition-all'
         >
           Create Your Free SpendWise Account 🚀
         </motion.button>
